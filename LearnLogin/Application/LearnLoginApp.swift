@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleSignIn
 import KakaoSDKCommon
 import KakaoSDKAuth
+//import FirebaseCore
 
 @main
 struct LearnLoginApp: App {
@@ -34,9 +35,13 @@ struct LearnLoginApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        // 구글 Firebase 설정
+//        FirebaseApp.configure()
+        
         // 카카오 SDK 초기화
         KakaoSDK.initSDK(appKey: "YOUR_KAKAO_APP_KEY")
         
         return true
     }
 }
+

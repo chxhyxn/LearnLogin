@@ -13,6 +13,7 @@
 		B983188A2D852284005B81E3 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B98318892D852284005B81E3 /* KakaoSDKAuth */; };
 		B983188C2D852284005B81E3 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B983188B2D852284005B81E3 /* KakaoSDKUser */; };
 		B983190D2D8540EA005B81E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B983190C2D8540EA005B81E3 /* README.md */; };
+		B98319762D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B98319752D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B98318832D85224D005B81E3 /* GoogleSignIn in Frameworks */,
+				B98319762D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				B98318852D85224D005B81E3 /* GoogleSignInSwift in Frameworks */,
 				B98318882D852284005B81E3 /* KakaoSDK in Frameworks */,
 				B983188C2D852284005B81E3 /* KakaoSDKUser in Frameworks */,
@@ -99,6 +101,7 @@
 				B98318872D852284005B81E3 /* KakaoSDK */,
 				B98318892D852284005B81E3 /* KakaoSDKAuth */,
 				B983188B2D852284005B81E3 /* KakaoSDKUser */,
+				B98319752D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport */,
 			);
 			productName = LearnLogin;
 			productReference = B98318522D850A65005B81E3 /* LearnLogin.app */;
@@ -131,6 +134,7 @@
 			packageReferences = (
 				B98318812D85224D005B81E3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				B98319742D85467F005B81E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B98318532D850A65005B81E3 /* Products */;
@@ -385,6 +389,14 @@
 				minimumVersion = 2.24.0;
 			};
 		};
+		B98319742D85467F005B81E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -412,6 +424,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		B98319752D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98319742D85467F005B81E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

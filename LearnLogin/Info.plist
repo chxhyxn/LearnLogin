@@ -4,7 +4,7 @@
 <dict>
     <!-- Google 로그인 -->
     <key>GIDClientID</key>
-    <string>YOUR_GOOGLE_CLIENT_ID</string>
+    <string>751851569327-3vepq0vighg5j2g42d48ro9vph8rj1je.apps.googleusercontent.com</string>
     <key>CFBundleURLTypes</key>
     <array>
         <dict>
@@ -12,7 +12,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.YOUR_CLIENT_ID</string>
+                <string>com.googleusercontent.apps.751851569327-3vepq0vighg5j2g42d48ro9vph8rj1je</string>
                 <string>kakaoYOUR_KAKAO_APP_KEY</string>
             </array>
         </dict>
