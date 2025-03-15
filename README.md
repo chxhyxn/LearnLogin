@@ -9,8 +9,8 @@
 2. "API 및 서비스" > "사용자 인증 정보"로 이동
 3. "사용자 인증 정보 만들기" > "OAuth 클라이언트 ID"를 선택
 4. 애플리케이션 유형으로 "iOS"를 선택하고 번들 ID를 입력
-5. 생성된 클라이언트 ID를 Info.plist의 GIDClientID 키에 추가
-6. URL 스키마(com.googleusercontent.apps.YOUR_CLIENT_ID)도 Info.plist에 추가
+5. 생성된 CLIENT_ID를 Info.plist의 GIDClientID 키에 추가
+6. URL 스키마(REVERSED_CLIENT_ID)도 Info.plist에 추가
 
 ## 카카오 로그인 설정
 1. Kakao Developers 상단 메뉴에서 "내 애플리케이션" > "애플리케이션 추가하기"
