@@ -6,13 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B98318832D85224D005B81E3 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B98318822D85224D005B81E3 /* GoogleSignIn */; };
+		B98318852D85224D005B81E3 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B98318842D85224D005B81E3 /* GoogleSignInSwift */; };
+		B98318882D852284005B81E3 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B98318872D852284005B81E3 /* KakaoSDK */; };
+		B983188A2D852284005B81E3 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B98318892D852284005B81E3 /* KakaoSDKAuth */; };
+		B983188C2D852284005B81E3 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B983188B2D852284005B81E3 /* KakaoSDKUser */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		B98318522D850A65005B81E3 /* LearnLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B983188E2D8522A0005B81E3 /* Exceptions for "LearnLogin" folder in "LearnLogin" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B98318512D850A65005B81E3 /* LearnLogin */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B98318542D850A65005B81E3 /* LearnLogin */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B983188E2D8522A0005B81E3 /* Exceptions for "LearnLogin" folder in "LearnLogin" target */,
+			);
 			path = LearnLogin;
 			sourceTree = "<group>";
 		};
@@ -23,6 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98318832D85224D005B81E3 /* GoogleSignIn in Frameworks */,
+				B98318852D85224D005B81E3 /* GoogleSignInSwift in Frameworks */,
+				B98318882D852284005B81E3 /* KakaoSDK in Frameworks */,
+				B983188C2D852284005B81E3 /* KakaoSDKUser in Frameworks */,
+				B983188A2D852284005B81E3 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +91,11 @@
 			);
 			name = LearnLogin;
 			packageProductDependencies = (
+				B98318822D85224D005B81E3 /* GoogleSignIn */,
+				B98318842D85224D005B81E3 /* GoogleSignInSwift */,
+				B98318872D852284005B81E3 /* KakaoSDK */,
+				B98318892D852284005B81E3 /* KakaoSDKAuth */,
+				B983188B2D852284005B81E3 /* KakaoSDKUser */,
 			);
 			productName = LearnLogin;
 			productReference = B98318522D850A65005B81E3 /* LearnLogin.app */;
@@ -94,6 +125,10 @@
 			);
 			mainGroup = B98318492D850A65005B81E3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B98318812D85224D005B81E3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B98318532D850A65005B81E3 /* Products */;
 			projectDirPath = "";
@@ -255,6 +290,7 @@
 				DEVELOPMENT_TEAM = TXFPK3WSCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearnLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,6 +320,7 @@
 				DEVELOPMENT_TEAM = TXFPK3WSCH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LearnLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,6 +361,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B98318812D85224D005B81E3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.24.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B98318822D85224D005B81E3 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318812D85224D005B81E3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		B98318842D85224D005B81E3 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318812D85224D005B81E3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+		B98318872D852284005B81E3 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		B98318892D852284005B81E3 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		B983188B2D852284005B81E3 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B983184A2D850A65005B81E3 /* Project object */;
 }
