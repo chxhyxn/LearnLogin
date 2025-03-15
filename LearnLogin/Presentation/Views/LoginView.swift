@@ -100,7 +100,11 @@ struct LoginView: View {
                 }
             }
             .padding()
+            .task {
+                await viewModel.checkCurrentUser()
+            }
             .onChange(of: viewModel.isAuthenticated) { newValue in
+                print(1)
                 if newValue {
                     navigateToProfile = true
                 }

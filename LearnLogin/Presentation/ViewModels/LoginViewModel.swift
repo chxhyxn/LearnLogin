@@ -23,11 +23,24 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    private func checkCurrentUser() async {
-        if let user = await authUseCase.getCurrentUser() {
+    func checkCurrentUser() async {
+        Task {
             await MainActor.run {
-                self.user = user
-                self.isAuthenticated = true
+                isLoading = true
+            }
+            
+            if let user = await authUseCase.getCurrentUser() {
+                await MainActor.run {
+                    self.user = user
+                    self.isAuthenticated = true
+                    self.isLoading = false
+                }
+            }else {
+                await MainActor.run {
+                    self.user = nil
+                    self.isAuthenticated = false
+                    self.isLoading = false
+                }
             }
         }
     }
@@ -50,27 +63,27 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func signOut() {
-        Task {
-            await MainActor.run {
-                self.isLoading = true
-            }
-            
-            do {
-                try await authUseCase.signOut()
-                await MainActor.run {
-                    self.user = nil
-                    self.isAuthenticated = false
-                    self.isLoading = false
-                }
-            } catch {
-                await MainActor.run {
-                    self.error = error.localizedDescription
-                    self.isLoading = false
-                }
-            }
-        }
-    }
+//    func signOut() {
+//        Task {
+//            await MainActor.run {
+//                self.isLoading = true
+//            }
+//            
+//            do {
+//                try await authUseCase.signOut()
+//                await MainActor.run {
+//                    self.user = nil
+//                    self.isAuthenticated = false
+//                    self.isLoading = false
+//                }
+//            } catch {
+//                await MainActor.run {
+//                    self.error = error.localizedDescription
+//                    self.isLoading = false
+//                }
+//            }
+//        }
+//    }
     
     private func signIn(authMethod: @escaping () async throws -> User) {
         Task {
