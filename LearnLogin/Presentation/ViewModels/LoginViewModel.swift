@@ -63,28 +63,6 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-//    func signOut() {
-//        Task {
-//            await MainActor.run {
-//                self.isLoading = true
-//            }
-//            
-//            do {
-//                try await authUseCase.signOut()
-//                await MainActor.run {
-//                    self.user = nil
-//                    self.isAuthenticated = false
-//                    self.isLoading = false
-//                }
-//            } catch {
-//                await MainActor.run {
-//                    self.error = error.localizedDescription
-//                    self.isLoading = false
-//                }
-//            }
-//        }
-//    }
-    
     private func signIn(authMethod: @escaping () async throws -> User) {
         Task {
             await MainActor.run {
