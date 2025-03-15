@@ -14,6 +14,7 @@
 		B983188C2D852284005B81E3 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B983188B2D852284005B81E3 /* KakaoSDKUser */; };
 		B983190D2D8540EA005B81E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B983190C2D8540EA005B81E3 /* README.md */; };
 		B98319762D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B98319752D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		B9B934942D855CCC001D7C48 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B9B934932D855CCC001D7C48 /* KakaoSDKCommon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B98318832D85224D005B81E3 /* GoogleSignIn in Frameworks */,
+				B9B934942D855CCC001D7C48 /* KakaoSDKCommon in Frameworks */,
 				B98319762D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				B98318852D85224D005B81E3 /* GoogleSignInSwift in Frameworks */,
 				B98318882D852284005B81E3 /* KakaoSDK in Frameworks */,
@@ -102,6 +104,7 @@
 				B98318892D852284005B81E3 /* KakaoSDKAuth */,
 				B983188B2D852284005B81E3 /* KakaoSDKUser */,
 				B98319752D85467F005B81E3 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				B9B934932D855CCC001D7C48 /* KakaoSDKCommon */,
 			);
 			productName = LearnLogin;
 			productReference = B98318522D850A65005B81E3 /* LearnLogin.app */;
@@ -429,6 +432,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B98319742D85467F005B81E3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		B9B934932D855CCC001D7C48 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B98318862D852284005B81E3 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
