@@ -27,6 +27,10 @@ class DependencyContainer {
         return KakaoAuthDataSource()
     }()
     
+    lazy var networkConnectivityDataSource: NetworkConnectivityDataSource = {
+        return NetworkConnectivityDataSource()
+    }()
+    
     // 리포지토리
     lazy var authRepository: AuthRepository = {
         return AuthRepositoryImpl(
@@ -36,8 +40,21 @@ class DependencyContainer {
         )
     }()
     
+    lazy var networkConnectivityRepository: NetworkConnectivityRepository = {
+        return NetworkConnectivityRepositoryImpl(networkConnectivityDataSource: networkConnectivityDataSource)
+    }()
+    
     // 유스케이스
     lazy var authUseCase: AuthUseCase = {
         return AuthUseCaseImpl(authRepository: authRepository)
+    }()
+    
+    lazy var networkConnectivityUseCase: NetworkConnectivityUseCase = {
+        return NetworkConnectivityUseCaseImpl(networkConnectivityRepository: networkConnectivityRepository)
+    }()
+    
+    // 뷰모델
+    lazy var networkConnectivityViewModel: NetworkConnectivityViewModel = {
+        return NetworkConnectivityViewModel(networkConnectivityUseCase: networkConnectivityUseCase)
     }()
 }

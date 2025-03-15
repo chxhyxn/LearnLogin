@@ -14,10 +14,12 @@ import KakaoSDKAuth
 @main
 struct LearnLoginApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @StateObject private var networkViewModel = DependencyContainer.shared.networkConnectivityViewModel
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .networkAlert(viewModel: networkViewModel)
                 .onOpenURL { url in
                     // 구글 로그인 처리
                     if GIDSignIn.sharedInstance.handle(url) {
