@@ -1,10 +1,12 @@
-## Apple 로그인 설정
+# 소셜 로그인
+
+### Apple 로그인 설정
 
 1. Apple Developer 계정에서 "Certificates, Identifiers & Profiles" 섹션
 2. Identifiers에서 앱 ID를 선택하고 "Sign In with Apple" 기능을 활성화
 3. 프로젝트의 Signing & Capabilities 탭에서 "Sign In with Apple" 기능을 추가
 
-## Google 로그인 설정
+### Google 로그인 설정
 1. Google Cloud Console에서 새 프로젝트를 생성 ([https://console.cloud.google.com/](https://console.cloud.google.com/))
 2. "API 및 서비스" > "사용자 인증 정보"로 이동
 3. "사용자 인증 정보 만들기" > "OAuth 클라이언트 ID"를 선택
@@ -46,7 +48,7 @@
         </array>
 14. SPM에서 URL : "[https://github.com/google/GoogleSignIn-iOS](https://github.com/kakao/kakao-ios-sdk)" 입력 후 KakaoSDKUser, KakaoSDKAuth 추가
 
-# 최종 Info.plist
+## 최종 Info.plist
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -76,3 +78,5 @@
     </dict>
     </plist>
 
+# 유저 데이터베이스 구성 Firestore
+1. SPM에서 URL : "[https://github.com/firebase/firebase-ios-sdk.git](https://github.com/firebase/firebase-ios-sdk.git)" 입력 후 FirebaseFirestore, FirebaseAuth, FirebaseAnalyticsWithoutAdId 추가
