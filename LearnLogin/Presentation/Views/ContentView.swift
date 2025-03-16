@@ -9,6 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        LoginView(viewModel: LoginViewModel(authUseCase: DependencyContainer.shared.authUseCase))
+        LoginView(viewModel: DependencyContainer.shared.loginViewModel)
     }
 }

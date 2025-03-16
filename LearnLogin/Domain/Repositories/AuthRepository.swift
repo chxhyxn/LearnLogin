@@ -13,4 +13,7 @@ protocol AuthRepository {
     func signInWithKakao() async throws -> User
     func signOut() async throws
     func getCurrentUser() async -> User?
+    
+    // Firestore 관련 기능 추가
+    func updateUserProfile(userId: String, name: String?, profileImageUrl: String?) async throws
 }

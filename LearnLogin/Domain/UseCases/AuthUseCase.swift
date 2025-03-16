@@ -11,6 +11,7 @@ protocol AuthUseCase {
     func signInWithKakao() async throws -> User
     func signOut() async throws
     func getCurrentUser() async -> User?
+    func updateUserProfile(userId: String, name: String?, profileImageUrl: String?) async throws
 }
 
 class AuthUseCaseImpl: AuthUseCase {
@@ -38,5 +39,9 @@ class AuthUseCaseImpl: AuthUseCase {
     
     func getCurrentUser() async -> User? {
         return await authRepository.getCurrentUser()
+    }
+    
+    func updateUserProfile(userId: String, name: String?, profileImageUrl: String?) async throws {
+        try await authRepository.updateUserProfile(userId: userId, name: name, profileImageUrl: profileImageUrl)
     }
 }
