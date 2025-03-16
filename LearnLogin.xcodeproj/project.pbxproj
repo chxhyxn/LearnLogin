@@ -11,6 +11,8 @@
 		B96674AE2D868F410043977B /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B96674AD2D868F410043977B /* GoogleSignInSwift */; };
 		B96674B12D868F5A0043977B /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = B96674B02D868F5A0043977B /* KakaoSDK */; };
 		B96674B32D868F5A0043977B /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B96674B22D868F5A0043977B /* KakaoSDKAuth */; };
+		B96674B62D8691D20043977B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B96674B52D8691D20043977B /* FirebaseAuth */; };
+		B96674B82D8691D20043977B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B96674B72D8691D20043977B /* FirebaseFirestore */; };
 		B983190D2D8540EA005B81E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B983190C2D8540EA005B81E3 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -46,9 +48,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96674B12D868F5A0043977B /* KakaoSDK in Frameworks */,
+				B96674B62D8691D20043977B /* FirebaseAuth in Frameworks */,
 				B96674AC2D868F410043977B /* GoogleSignIn in Frameworks */,
 				B96674AE2D868F410043977B /* GoogleSignInSwift in Frameworks */,
 				B96674B32D868F5A0043977B /* KakaoSDKAuth in Frameworks */,
+				B96674B82D8691D20043977B /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +100,8 @@
 				B96674AD2D868F410043977B /* GoogleSignInSwift */,
 				B96674B02D868F5A0043977B /* KakaoSDK */,
 				B96674B22D868F5A0043977B /* KakaoSDKAuth */,
+				B96674B52D8691D20043977B /* FirebaseAuth */,
+				B96674B72D8691D20043977B /* FirebaseFirestore */,
 			);
 			productName = LearnLogin;
 			productReference = B98318522D850A65005B81E3 /* LearnLogin.app */;
@@ -128,6 +134,7 @@
 			packageReferences = (
 				B96674AA2D868F410043977B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				B96674AF2D868F5A0043977B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				B96674B42D8691D20043977B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = B98318532D850A65005B81E3 /* Products */;
@@ -382,6 +389,14 @@
 				minimumVersion = 2.24.0;
 			};
 		};
+		B96674B42D8691D20043977B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -404,6 +419,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B96674AF2D868F5A0043977B /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKAuth;
+		};
+		B96674B52D8691D20043977B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96674B42D8691D20043977B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B96674B72D8691D20043977B /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96674B42D8691D20043977B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
