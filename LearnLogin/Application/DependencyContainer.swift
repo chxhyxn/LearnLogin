@@ -31,12 +31,17 @@ class DependencyContainer {
         return NetworkConnectivityDataSource()
     }()
     
+    lazy var userFirestoreDataSource: UserFirestoreDataSource = {
+        return UserFirestoreDataSource()
+    }()
+    
     // 리포지토리
     lazy var authRepository: AuthRepository = {
         return AuthRepositoryImpl(
             appleAuthDataSource: appleAuthDataSource,
             googleAuthDataSource: googleAuthDataSource,
-            kakaoAuthDataSource: kakaoAuthDataSource
+            kakaoAuthDataSource: kakaoAuthDataSource,
+            firestoreDataSource: userFirestoreDataSource
         )
     }()
     
@@ -56,5 +61,13 @@ class DependencyContainer {
     // 뷰모델
     lazy var networkConnectivityViewModel: NetworkConnectivityViewModel = {
         return NetworkConnectivityViewModel(networkConnectivityUseCase: networkConnectivityUseCase)
+    }()
+    
+    lazy var loginViewModel: LoginViewModel = {
+        return LoginViewModel(authUseCase: authUseCase)
+    }()
+    
+    lazy var userProfileViewModel: UserProfileViewModel = {
+        return UserProfileViewModel(authUseCase: authUseCase)
     }()
 }
