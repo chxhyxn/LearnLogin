@@ -80,3 +80,6 @@
 
 # 유저 데이터베이스 구성 Firestore
 1. SPM에서 URL : "[https://github.com/firebase/firebase-ios-sdk.git](https://github.com/firebase/firebase-ios-sdk.git)" 입력 후 FirebaseFirestore, FirebaseAuth, FirebaseAnalyticsWithoutAdId 추가
+2. firebase console에서 프로젝트 등록.
+3. GoogleService-Info.plist 프로젝트에 추가.
+4. firestore database 생성
