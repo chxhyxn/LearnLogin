@@ -11,6 +11,7 @@ class AuthRepositoryImpl: AuthRepository {
     private let appleAuthDataSource: AppleAuthDataSource
     private let googleAuthDataSource: GoogleAuthDataSource
     private let kakaoAuthDataSource: KakaoAuthDataSource
+    private let keychainDataSource: KeychainDataSource
     private let firestoreDataSource: UserFirestoreDataSource
     private var currentUser: User?
     private let logger = Logger(subsystem: "com.yourapp.LearnLogin", category: "AuthRepository")
@@ -19,11 +20,13 @@ class AuthRepositoryImpl: AuthRepository {
         appleAuthDataSource: AppleAuthDataSource,
         googleAuthDataSource: GoogleAuthDataSource,
         kakaoAuthDataSource: KakaoAuthDataSource,
+        keychainDataSource: KeychainDataSource,
         firestoreDataSource: UserFirestoreDataSource
     ) {
         self.appleAuthDataSource = appleAuthDataSource
         self.googleAuthDataSource = googleAuthDataSource
         self.kakaoAuthDataSource = kakaoAuthDataSource
+        self.keychainDataSource = keychainDataSource
         self.firestoreDataSource = firestoreDataSource
     }
     
@@ -33,6 +36,9 @@ class AuthRepositoryImpl: AuthRepository {
         
         // Firestore에 사용자 데이터 저장
         try await firestoreDataSource.saveUser(userDTO)
+        
+        // Keychain에 사용자 데이터 저장
+        keychainDataSource.saveUser(userDTO)
         
         let user = userDTO.toDomain()
         currentUser = user
@@ -46,6 +52,9 @@ class AuthRepositoryImpl: AuthRepository {
         // Firestore에 사용자 데이터 저장
         try await firestoreDataSource.saveUser(userDTO)
         
+        // Keychain에 사용자 데이터 저장
+        keychainDataSource.saveUser(userDTO)
+        
         let user = userDTO.toDomain()
         currentUser = user
         return user
@@ -57,6 +66,9 @@ class AuthRepositoryImpl: AuthRepository {
         
         // Firestore에 사용자 데이터 저장
         try await firestoreDataSource.saveUser(userDTO)
+        
+        // Keychain에 사용자 데이터 저장
+        keychainDataSource.saveUser(userDTO)
         
         let user = userDTO.toDomain()
         currentUser = user
@@ -77,11 +89,37 @@ class AuthRepositoryImpl: AuthRepository {
                 break
             }
         }
+        
+        // 키체인에서 사용자 정보 삭제
+        keychainDataSource.deleteUser()
         currentUser = nil
     }
     
     func getCurrentUser() async -> User? {
         return currentUser
+    }
+    
+    func loadSavedUser() async -> User? {
+        logger.info("Loading saved user from Keychain")
+        
+        // 이미 메모리에 로드된 사용자가 있는지 확인
+        if let currentUser = currentUser {
+            logger.info("Using already loaded user: \(currentUser.id)")
+            return currentUser
+        }
+        
+        // Keychain에서 사용자 정보 로드
+        if let userDTO = keychainDataSource.getUser() {
+            logger.info("Loaded user from Keychain: \(userDTO.id)")
+            
+            // 사용자 정보를 메모리에 저장
+            let user = userDTO.toDomain()
+            currentUser = user
+            return user
+        }
+        
+        logger.info("No saved user found")
+        return nil
     }
     
     // Firestore에서 사용자 프로필 정보 업데이트
@@ -112,6 +150,18 @@ class AuthRepositoryImpl: AuthRepository {
                     )
                 }
                 currentUser = user
+                
+                // 키체인에 저장된 사용자 정보도 업데이트
+                if let userDTO = keychainDataSource.getUser() {
+                    let updatedUserDTO = UserDTO(
+                        id: userDTO.id,
+                        name: name ?? userDTO.name,
+                        email: userDTO.email,
+                        profileImageUrl: profileImageUrl ?? userDTO.profileImageUrl,
+                        provider: userDTO.provider
+                    )
+                    keychainDataSource.saveUser(updatedUserDTO)
+                }
             }
         }
     }

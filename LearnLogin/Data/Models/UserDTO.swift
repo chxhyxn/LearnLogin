@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserDTO {
+struct UserDTO: Codable {
     let id: String
     let name: String
     let email: String?

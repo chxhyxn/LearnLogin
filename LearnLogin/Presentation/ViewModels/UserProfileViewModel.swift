@@ -30,15 +30,29 @@ class UserProfileViewModel: ObservableObject {
             isLoading = true
         }
         
+        // 먼저 메모리에 있는 사용자 정보를 확인
         if let user = await authUseCase.getCurrentUser() {
+            logger.info("Using current user from memory: \(user.id)")
             await MainActor.run {
                 self.user = user
                 self.isLoading = false
             }
-        } else {
+            return
+        }
+        
+        // 필요한 경우 키체인에서 사용자 정보 로드
+        if let savedUser = await authUseCase.loadSavedUser() {
+            logger.info("Loaded saved user from Keychain: \(savedUser.id)")
             await MainActor.run {
+                self.user = savedUser
                 self.isLoading = false
             }
+            return
+        }
+        
+        logger.warning("No user found")
+        await MainActor.run {
+            self.isLoading = false
         }
     }
     

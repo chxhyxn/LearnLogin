@@ -27,6 +27,10 @@ class DependencyContainer {
         return KakaoAuthDataSource()
     }()
     
+    lazy var keychainDataSource: KeychainDataSource = {
+        return KeychainDataSource()
+    }()
+    
     lazy var networkConnectivityDataSource: NetworkConnectivityDataSource = {
         return NetworkConnectivityDataSource()
     }()
@@ -41,6 +45,7 @@ class DependencyContainer {
             appleAuthDataSource: appleAuthDataSource,
             googleAuthDataSource: googleAuthDataSource,
             kakaoAuthDataSource: kakaoAuthDataSource,
+            keychainDataSource: keychainDataSource,
             firestoreDataSource: userFirestoreDataSource
         )
     }()
